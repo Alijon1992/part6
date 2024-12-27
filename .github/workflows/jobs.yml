@@ -1,6 +1,6 @@
 name: jobs
 
-on: 
+on:
   push:
     branches:
       - main
@@ -18,7 +18,7 @@ jobs:
         id: buildStep
         run: |
           bunver=$(bun --version)
-          echo "buildOut=$bunver" >> $GITHUB_OUTPUT
+          echo "buildOut=$bunver" >> "$GITHUB_OUTPUT"  # Correctly setting the output
 
   deploy-job:
     name: deploy job
@@ -26,7 +26,7 @@ jobs:
     needs: build-job
     steps:
       - name: test build output
-        run: echo ${{ needs.build-job.outputs.build-output }}
+        run: echo "Build output: ${{ needs.build-job.outputs.build-output }}"  # Correctly referencing the output
 
   concurrency-job1:
     runs-on: ubuntu-latest
