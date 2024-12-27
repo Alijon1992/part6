@@ -18,7 +18,7 @@ jobs:
         id: buildStep
         run: |
           bunver=$(bun --version)
-          echo "buildOut=$bunver" >> "GITHUB_OUTPUT"
+          echo "buildOut=$bunver" >> "GITHUB_ENV"
 
   deploy-job:
     name: deploy job
