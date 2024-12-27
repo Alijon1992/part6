@@ -2,6 +2,7 @@ name: jobs
 
 on: 
   push:
+  workflow_dispatch:
 
 jobs:
   build-job:
