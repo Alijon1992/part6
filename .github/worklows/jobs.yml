@@ -2,8 +2,6 @@ name: jobs
 
 on: 
   push:
-  branches:
-    main
 
 jobs:
   build-job:
@@ -28,7 +26,7 @@ jobs:
       - name: test build output
         run: echo ${{ needs.build-job.outputs.build-output }}
 
-  concurrencey-job1:
+  concurrency-job1:
     runs-on: ubuntu-latest
     concurrency:
       group: test
